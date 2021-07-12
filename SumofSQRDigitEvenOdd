@@ -1,0 +1,23 @@
+# Take input from the user in the given format(consist of name and code). 
+# Find the sum of square of digit. if the sum of sqr of digit of the code are:
+# - EvEN : Then add the last 2 char in the beging
+# - ODD : Then add first char in the end
+# INPUT : abcd:1234, bcdghf:127836, sdjks:1245
+# OUTPUT : cdab cdghfb kssdj
+
+input_string = input().split(',')
+for i in input_string:
+    string , num = i.split(":")
+
+    length = len(string)
+    sum = 0
+
+    for digit in num:
+        sum += (int(digit)**2)
+
+    if (sum % 2 == 0):
+        s = string[length -2 : length]
+        print(s + string[0 : length -2],end=' ')
+    else:
+        s = string[0]
+        print(string[1 : length] + s , end=' ')
