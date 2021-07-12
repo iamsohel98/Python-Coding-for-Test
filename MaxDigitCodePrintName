@@ -1,0 +1,23 @@
+# Take input from the user in the given format(consist of name and code). 
+#Finde the maximum digit from the code which is less than or eqal to the length of
+# name and put the place char in the final string if there is no digit found which satisfi the given condition then simply pu "X"
+
+Final_string = ""
+input_string = input()
+a = input_string.split(",")
+
+for i in a:
+    x,y = i.split(":")
+    length = len(x)
+
+    maximum = 0
+    for j in y:
+        if int(j) <= length and int(j) >= int(maximum):
+            maximum = j
+
+    if maximum == 0:
+        Final_string +="X"
+    else:
+        Final_string += x[int(maximum)-1]
+
+print(Final_string)
