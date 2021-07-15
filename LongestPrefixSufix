@@ -1,0 +1,18 @@
+# Given a string s , find length of the longest prefix which is also suffix .
+# The prefix and suffix should not be overlaped 
+# INPUT: abcdabc
+#Output: 3
+
+input_str = input()
+length = len(input_str)
+
+mid = length// 2
+print(mid)
+
+for i in range(mid , 0 ,-1):
+    prefix = input_str[ 0: i]
+    suffix = input_str[ length - i: length]
+
+    if (prefix == suffix):
+        print(len(prefix))
+        break
