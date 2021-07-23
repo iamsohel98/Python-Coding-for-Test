@@ -1,0 +1,32 @@
+# Given an array with positive number (comma saparated) the task is that we find largest subset from array that 
+# contain element which are Fibonacci number . If more than two element exist then print its length else print -1
+# INPUT: 3,2,5,8,9,10,11  OUTPUT: 5 [2,3,5,8,11]
+
+input_arr = list(map(int,input().split(",")))
+input_arr.sort()
+max_num = max(input_arr)
+
+num1 = 0
+num2 = 1
+fib_list = []
+
+fib_list.append(num1)
+fib_list.append(num2)
+
+while(num2 < max_num):
+    sum = num1 + num2
+    num1 = num2
+    num2 = sum
+    fib_list.append(num2)
+    print(fib_list)
+
+fib_seq = []
+
+for i in range (len(input_arr)):
+    if input_arr[i] in fib_list:
+        fib_seq.append(input_arr[i])
+
+if len(fib_seq) > 2:
+    print(len(fib_seq))
+else:
+    print(-1)
